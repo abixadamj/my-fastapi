@@ -1,0 +1,16 @@
+# Yaml for 6ROADS
+version: '3.1'
+
+services:
+
+  fast-api:
+    build:
+      context: .
+    ports:
+      - 5501:5501
+    environment:
+      PORT: 5501
+      APP_TYPE: local-test
+      APP_PORT: 5501
+      APP_HOST: 0.0.0.0
+    restart: on-failure
