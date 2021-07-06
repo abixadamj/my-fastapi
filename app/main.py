@@ -1,6 +1,6 @@
 import os
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from datetime import datetime
 
 app: FastAPI = FastAPI()
@@ -9,10 +9,15 @@ __APP_TYPE__ = os.getenv("APP_TYPE", None)
 
 
 @app.get("/")
-def main():
+async def main(request: Request):
     return {"os": os.uname(),
             "Made by:": "Adam Jurkiewicz",
-            "Current date/time:": str(datetime.now()),
+            "Webpage": "https://jurkiewicz.tech",
+            "E-mail": "adam@jurkiewicz.tech",
+            "Current date/time on server": str(datetime.now()),
+            "Want to see the source?": "Yes....",
+            "Point browser to...": "https://github.com/abixadamj/my-fastapi",
+            "Client's IP": request.client.host,
             }
 
 
