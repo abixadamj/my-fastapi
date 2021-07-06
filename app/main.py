@@ -17,7 +17,7 @@ async def main(request: Request):
             "Current date/time on server": str(datetime.now()),
             "Want to see the source?": "Yes....",
             "Point browser to...": "https://github.com/abixadamj/my-fastapi",
-            "Client's IP": request.client.host,
+            "Client's headers": request.headers,
             }
 
 
